@@ -1,11 +1,12 @@
-const $links = document.getElementById('links');
 const $name = document.querySelector('h1');
+const $links = document.getElementById('links');
+const $text = document.getElementById('description');
 
 const data = 
 {
     name: "Rubén Aragón mx",
     nickname: "torofms37",
-    description: "...",
+    description: "Teacher in primary at Mexican Public Scholl & Learning Enginner at @Platzi about of #HTML #CSS #JS #NODE #REACT",
     avatar: "...",
     social: 
     [
@@ -41,6 +42,7 @@ const data =
 
 const main = () => {
     let name = document.createTextNode(data?.name);
+    let description = document.createTextNode(data?.description);
     let links = data?.links?.map((link) => {
         return `<div class="bg-${link.color}-200 px-4 py-5 w-full flex justify-between">
         <a class="text-sm font-bold text-${link.color}-600 text-center hover:text-${link.color}-800 cursor-pointer"
@@ -52,6 +54,7 @@ const main = () => {
     }).join('');
     let newItem = document.createElement('section');
     newItem.innerHTML = links;
+    $text.appendChild(description)
     $links.appendChild(newItem);
     $name.appendChild(name);
 }
